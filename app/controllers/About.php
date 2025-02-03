@@ -12,7 +12,7 @@ class About extends Controller
         $this->view('templet/footer');
     }
 
-    public function page()
+    public function detail()
     {
         $data['judul'] = "Tentang Dia";
         $this->view('templet/header', $data);
