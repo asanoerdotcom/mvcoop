@@ -2,24 +2,23 @@
 
 class Mahasiswa_model
 {
-    private $dbh; // database handler
-    private $stmt; // statement
+    private $tabel = "mahasiswa";
+    private $db;
 
-    public function __construct()
+    function __construct()
     {
-        // $dsn adalah data source name
-        $dsn = 'mysql:host=localhost;dbname=mvc-oop';
-
-        try {
-            $this->dbh = new PDO($dsn, 'root', '');
-        } catch (PDOException $e) { // Ambil eror dan masukkan ke dalam variable $e
-            die($e->getMessage()); // jika terjadi kesalahan, maka akan menampilkan pesan kesalahan
-        }
+        $this->db = new Database();
     }
     public function getAllMahasiswa()
     {
-        $this->stmt = $this->dbh->prepare('SELECT * FROM mahasiswa');
-        $this->stmt->execute();
-        return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
+        $this->db->query('SELECT * FROM ' . $this->tabel);
+        return $this->db->resultSet();
+    }
+
+    public function getMahasiswaByID($id)
+    {
+        $this->db->query('SELECT * FROM ' . $this->tabel . ' WHERE id=:id'); ## ID variabel harus di bind, spy tidak kena SQL Injection
+        $this->db->bind('id', $id); ## 'id' ==> menunjuk id dari Query di atas.
+        return $this->db->single(); ## single() digunakan untuk mengambil satu data saja.
     }
 }
