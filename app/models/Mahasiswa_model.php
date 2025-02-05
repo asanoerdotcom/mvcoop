@@ -21,4 +21,18 @@ class Mahasiswa_model
         $this->db->bind('id', $id); ## 'id' ==> menunjuk id dari Query di atas.
         return $this->db->single(); ## single() digunakan untuk mengambil satu data saja.
     }
+
+    public function tambahDataMahasiswa($data)
+    {
+        $query = "INSERT INTO $this->tabel VALUES (null, :nama, :nim, :email, :jurusan)";
+
+        $this->db->query($query);
+        $this->db->bind('nama', $data['nama']);
+        $this->db->bind('nim', $data['nim']);
+        $this->db->bind('email', $data['email']);
+        $this->db->bind('jurusan', $data['jurusan']);
+
+        $this->db->execute();
+        return $this->db->rowCount(); ## mengembalikan jumlah baris yang diupdate.
+    }
 }

@@ -69,4 +69,9 @@ class Database
         $this->execute();
         return $this->stmt->fetch(PDO::FETCH_ASSOC);
     }
+
+    public function rowcount() # Tampilkan jumlah baris database
+    {
+        return $this->stmt->rowCount();
+    }
 }
