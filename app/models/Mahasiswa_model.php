@@ -35,4 +35,14 @@ class Mahasiswa_model
         $this->db->execute();
         return $this->db->rowCount(); ## mengembalikan jumlah baris yang diupdate.
     }
+
+    public function hapusDataMahasiswa($id)
+    {
+        $query = "DELETE FROM $this->tabel WHERE id = :id";
+        $this->db->query($query);
+        $this->db->bind('id', $id);
+        $this->db->execute();
+
+        return $this->db->rowCount(); ## mengembalikan jumlah baris yang diupdate.
+    }
 }

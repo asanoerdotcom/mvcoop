@@ -14,9 +14,12 @@
                     </button></h3>
                 <ul class="list-group">
                     <?php foreach ($data['mhs'] as $mhs) : ?>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <li class="list-group-item">
                             <?= $mhs['nama']; ?>
-                            <a href="<?= BASEURL; ?>mahasiswa/detail/<?= $mhs['id']; ?>" class="badge badge-primary">Detail</a>
+                            <div class="float-right">
+                                <a href="<?= BASEURL; ?>mahasiswa/detail/<?= $mhs['id']; ?>" class="badge badge-primary">Detail</a>
+                                <a href="<?= BASEURL; ?>mahasiswa/hapus/<?= $mhs['id']; ?>" class="badge badge-danger hapus-data">Hapus</a>
+                            </div>
                         </li>
                     <?php endforeach; ?>
                 </ul>
@@ -80,4 +83,24 @@
             </div>
         </div>
     </form>
+</div>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="hapus-kofirm">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Hapus Mahasiswa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Apakah anda yakin?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                <a type="button" class="btn btn-danger" id="konfirm-hapus">Ya, Hapus</a>
+            </div>
+        </div>
+    </div>
 </div>
