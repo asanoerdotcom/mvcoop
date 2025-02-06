@@ -1,7 +1,14 @@
 <div class="container">
     <div class="jumbotron mt-5">
+
         <div class="row">
-            <div class="col-6">
+            <div class="col-lg-6">
+                <?php Flasher::flash(); ?>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
                 <h3 class="mb-3">Daftar Mahasiswa <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#formTambah">
                         + Baru
                     </button></h3>
