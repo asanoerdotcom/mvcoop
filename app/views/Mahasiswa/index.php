@@ -9,7 +9,7 @@
 
         <div class="row">
             <div class="col-lg-6">
-                <h3 class="mb-3">Daftar Mahasiswa <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#formTambah">
+                <h3 class="mb-3">Daftar Mahasiswa <button type="button" class="btn btn-primary float-right" id="tbTambahData" data-toggle="modal" data-target="#formTambah" data-backdrop="static" data-action="<?= BASEURL; ?>mahasiswa/tambah">
                         + Baru
                     </button></h3>
                 <ul class="list-group">
@@ -18,6 +18,7 @@
                             <?= $mhs['nama']; ?>
                             <div class="float-right">
                                 <a href="<?= BASEURL; ?>mahasiswa/detail/<?= $mhs['id']; ?>" class="badge badge-primary">Detail</a>
+                                <a href="<?= BASEURL; ?>mahasiswa/ambildata/<?= $mhs['id']; ?>" class="badge badge-success ubah-data" data-toggle="modal" data-target="#formTambah" data-backdrop="static" data-action="<?= BASEURL; ?>mahasiswa/ubah">Ubah</a>
                                 <a href="<?= BASEURL; ?>mahasiswa/hapus/<?= $mhs['id']; ?>" class="badge badge-danger hapus-data">Hapus</a>
                             </div>
                         </li>
@@ -30,17 +31,17 @@
 
 <!-- Modal -->
 <div class="modal fade" id="formTambah" tabindex="-1" role="dialog" aria-labelledby="judulModal" aria-hidden="true">
-    <form action="<?= BASEURL; ?>mahasiswa/tambah" method="post">
+    <form action="" method="post">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="judulModal">Mahasiswa Baru</h5>
+                    <h5 class="modal-title" id="judulModal">Kosongan Saja Dah</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-
+                    <input type="hidden" name="id" id="id" />
                     <div class="form-group row">
                         <label for="nama" class="col-sm-2 col-form-label">Nama</label>
                         <div class="col-sm-10">
@@ -78,7 +79,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <button type="submit" class="btn btn-primary">Ok Simpan</button>
                 </div>
             </div>
         </div>
