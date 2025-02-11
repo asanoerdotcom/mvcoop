@@ -1,7 +1,7 @@
 <?php
 
 # URL Utama
-define('BASEURL', 'https://localhost/mvc-oop/public/');
+define('BASEURL', 'http://mvc-oop.asanoer.pisi/public/');
 
 # Database
 define('DB_HOST', 'localhost');  ## domain lokasi server database

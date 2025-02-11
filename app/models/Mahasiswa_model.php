@@ -66,4 +66,13 @@ class Mahasiswa_model
         $this->db->execute();
         return $this->db->rowCount(); ## mengembalikan jumlah baris yang diupdate.
     }
+
+    public function cariDataMahasiswa()
+    {
+        $keyword = $_POST['keyword'];
+        $query = "SELECT * FROM $this->tabel WHERE nama LIKE :keyword";
+        $this->db->query($query);
+        $this->db->bind('keyword', '%' . $keyword . '%');
+        return $this->db->resultSet();
+    }
 }

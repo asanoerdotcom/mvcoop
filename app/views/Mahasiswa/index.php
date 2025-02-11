@@ -13,6 +13,16 @@
                         + Baru
                     </button></h3>
                 <ul class="list-group">
+                    <li class="list-group-item">
+                        <form action="<?= BASEURL;  ?>mahasiswa/cari" method="post">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Cari Nama Mahasiswa" name="keyword" id="keyword" autocomplete="off" />
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="submit" id="tombolCari">Cari</button>
+                                </div>
+                            </div>
+                        </form>
+                    </li>
                     <?php foreach ($data['mhs'] as $mhs) : ?>
                         <li class="list-group-item">
                             <?= $mhs['nama']; ?>
@@ -29,7 +39,7 @@
     </div>
 </div>
 
-<!-- Modal -->
+<!-- Form -->
 <div class="modal fade" id="formTambah" tabindex="-1" role="dialog" aria-labelledby="judulModal" aria-hidden="true">
     <form action="" method="post">
         <div class="modal-dialog modal-lg" role="document">
@@ -50,7 +60,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="nim" class="col-sm-2 col-form-label">Nomor Induk</label>
+                        <label for="nim" class="col-sm-2 col-form-label">NIM</label>
                         <div class="col-sm-10">
                             <input type="number" class="form-control" id="nim" placeholder="Nomor Induk Mahasiswa" name="nim" />
                         </div>
@@ -67,6 +77,7 @@
                         <label for="jurusan" class="col-sm-2 col-form-label">Jurusan</label>
                         <div class="col-sm-10">
                             <select class="form-control" id="jurusan" name="jurusan">
+                                <option value="" disabled selected>PILIH JURUSAN</option>
                                 <option value="TEKINIK IT">TEKINIK IT</option>
                                 <option value="ILMU JARINGAN KOMPUTER">ILMU JARINGAN KOMPUTER</option>
                                 <option value="FARMASI TEKNICAL">FARMASI TEKNICAL</option>
@@ -86,6 +97,7 @@
     </form>
 </div>
 
+<!-- Notifikasi Hapus -->
 <div class="modal fade" tabindex="-1" role="dialog" id="hapus-kofirm">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
